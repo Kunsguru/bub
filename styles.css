@@ -1,0 +1,94 @@
+body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+           
+        }
+        .gallery {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        .main-image {
+            width: 200px;
+            height: 400px;
+            margin-right: 20px;
+            border: 2px solid #ccc;
+            position: relative;
+        }
+        .thumbnails {
+            display: flex;
+            flex-direction: column;
+        }
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: 2px solid #ccc;
+        }
+        .thumbnail img, .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-details {
+            margin-top: 20px;
+        }
+        .product-details1{
+        	display: flex;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      margin-right: -5%;
+      
+        	}
+        .product-details2{
+        	display: flex;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      margin-right: -25%;
+      margin-bottom: -150px;
+      z-index: 1;
+      
+      
+        	}
+        
+        .product-details01{
+        	display: flex;
+        position: absolute;
+        margin-bottom: -140%;
+        
+        }
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .quantity-control button {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .quantity-control input {
+            width: 50px;
+            text-align: center;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+            font-size: 16px;
+        }
+        .add-to-cart {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
