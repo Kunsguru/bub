@@ -10,21 +10,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let cartItems = [];
 
+        // Function to update main image and narration
+        function updateMainImage(src, price, narration) {
+            mainImage.src = src;
+            mainImage.setAttribute('data-price', price);
+            productNarration.textContent = narration;
+        }
+
         thumbnails.forEach(thumbnail => {
             thumbnail.addEventListener('click', () => {
-                const mainImageSrc = mainImage.src;
-                const mainImagePrice = mainImage.getAttribute('data-price');
-                const thumbnailImage = thumbnail.querySelector('img');
-                const thumbnailSrc = thumbnailImage.src;
+                const thumbnailSrc = thumbnail.getAttribute('data-src');
                 const thumbnailPrice = thumbnail.getAttribute('data-price');
                 const narration = thumbnail.getAttribute('data-narration');
 
-                // Swap images and data attributes
-                mainImage.src = thumbnailSrc;
-                mainImage.setAttribute('data-price', thumbnailPrice);
-                thumbnailImage.src = mainImageSrc;
-                thumbnail.setAttribute('data-price', mainImagePrice);
-                productNarration.textContent = narration;
+                // Update main image and product details
+                updateMainImage(thumbnailSrc, thumbnailPrice, narration);
             });
         });
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         addToCartBtn.addEventListener('click', () => {
             const item = {
                 src: mainImage.src,
-                price: mainImage.getAttribute('data-price'),
+                price: parseInt(mainImage.getAttribute('data-price')),
                 quantity: parseInt(quantityInput.value),
                 narration: productNarration.textContent
             };
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             emailBody += `Total Cost: ₦${totalCost}`;
 
             const mailtoLink = `mailto:mondaykingsley80@gmail.com?subject=Cart Items&body=${encodeURIComponent(emailBody)}`;
-            addToCartBtn.setAttribute('onclick', `window.location.href='${mailtoLink}'`);
+            window.location.href = mailtoLink;
         });
     });
 
