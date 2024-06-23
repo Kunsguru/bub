@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         addToCartBtn.addEventListener('click', () => {
             const item = {
                 src: mainImage.src,
-                price: parseInt(mainImage.getAttribute('data-price')),
+                price: mainImage.getAttribute('data-price'),
                 quantity: parseInt(quantityInput.value),
                 narration: productNarration.textContent
             };
@@ -60,3 +60,5 @@ document.addEventListener('DOMContentLoaded', () => {
             addToCartBtn.setAttribute('onclick', `window.location.href='${mailtoLink}'`);
         });
     });
+
+
